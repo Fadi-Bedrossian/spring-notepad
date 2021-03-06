@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-end-deployment
+  labels:
+    app: notepad
+    type: front-end
+spec:
+  replicas: 2   
+  selector:
+    matchLabels:
+      app: notepad
+      type: front-end
+  template:
+    metadata:
+      name: front-end
+      labels:
+        app: notepad
+        type: front-end
+    spec:
+      containers:
+      - name:  notepad
+        image: 94215545/notepad:my-notepad-img
+        ports:
+        - containerPort: 8080
+          name: front-end-port
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: test
+        - name: ENV_TEST_MYSQL_HOST
+          value: mysql-svc

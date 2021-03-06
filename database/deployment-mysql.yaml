@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    app: notepad
+    type: database
+spec:
+  replicas: 1   
+  selector:
+    matchLabels:
+      app: notepad
+      type: database
+  template:
+    metadata:
+      name: mysql
+      labels:
+        app: notepad
+        type: database
+    spec:
+      containers:
+      - image: mysql:5.7
+        name: mysql
+        command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
+        envFrom:
+          - secretRef:
+              name: mysql-secrets
+        ports:
+        - containerPort: 3306
+          name: mysql-port
+        volumeMounts:
+        - name: mysql-volume
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-volume
+        persistentVolumeClaim:
+          claimName: mysql-pvc
