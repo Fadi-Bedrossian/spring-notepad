@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: notepad-svc-notes
+  name: notepad-svc
   labels:
     app: notepad
     type: front-end

@@ -12,7 +12,7 @@ Note: secrets are encoded base64
 3- $ git clone https://github.com/jorgeacetozi/notepad.git 
 4- $ cd notepad	
 
-5- Once you successfully cloned the repository, build the app using Maven: 
+5- Add this CMD to Docker file to build the image using Maven
 $ mvn clean install package -Dmaven.test.skip=true
 
 6- login to your dockerhub registry or any of your registires
