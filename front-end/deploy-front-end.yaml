@@ -22,7 +22,7 @@ spec:
       - name:  notepad
         image: 94215545/spring-notepad:spring-notepad-img
         ports:
-        - containerPort: 8080
+        - containerPort: 80
           name: front-end-port
         env:
         - name: SPRING_PROFILES_ACTIVE
