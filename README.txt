@@ -32,9 +32,7 @@ $ mvn clean install package -Dmaven.test.skip=true
 11- create deployment for notepad front-end, 2 services nodePorts  (health-svc,notes-svc) , ingress 1 rule for 2 paths
      => deployment-notepad.yaml
      => docker-hub-reg-cred.yaml
-     => ingress-health-notes.yaml
-     => svc-notepad-health.yaml
-     => svc-notepad-notes.yaml
+     => svc-np.yaml
 
 12- test by : $ curl http://<notepad service hostname>:8080/health
               $ curl -H "Content-Type: application/json" -X POST -d '{"title":"Kubernetes","content":"Best container orchestration tool ever"}' http://<notepad service hostname>:8080/notes
