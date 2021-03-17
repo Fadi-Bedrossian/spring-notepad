@@ -29,7 +29,7 @@ $ mvn clean install package -Dmaven.test.skip=true
 10- setup nginx-ingress-controller via link : https://kubernetes.github.io/ingress-nginx/deploy/#bare-metal
 => kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.44.0/deploy/static/provider/baremetal/deploy.yaml
  
-11- create deployment for notepad front-end, 2 services nodePorts  (health-svc,notes-svc) , ingress 1 rule for 2 paths
+11- create deployment for notepad front-end, 1 service of type nodePort
      => deployment-notepad.yaml
      => docker-hub-reg-cred.yaml
      => svc-np.yaml
